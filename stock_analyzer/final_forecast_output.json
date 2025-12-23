@@ -1,0 +1,20 @@
+{
+  "forecast_date": "2025-12-23",
+  "symbol": "TEST",
+  "error": "Forecast system temporarily unavailable",
+  "predictions": [
+    {
+      "date": "2025-12-24",
+      "direction": "neutral",
+      "predicted_change_points": 0.0,
+      "confidence_score": 0.1
+    },
+    {
+      "date": "2025-12-25",
+      "direction": "neutral",
+      "predicted_change_points": 0.0,
+      "confidence_score": 0.1
+    }
+  ],
+  "fallback": true
+}

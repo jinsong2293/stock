@@ -1,0 +1,1142 @@
+2025-12-23 13:44:08,296 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:08,296 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 13:44:08,296 - modules.enhanced_stock_forecast - INFO - Training forecast system for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:08,296 - modules.enhanced_stock_forecast - INFO - Loading data for VNM_OPTIMIZED_TEST with 30 days history
+2025-12-23 13:44:08,296 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:10,176 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VNM_OPTIMIZED_TEST.VN"}}}
+2025-12-23 13:44:10,395 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:10,395 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:12,126 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VNM_OPTIMIZED_TEST.HN"}}}
+2025-12-23 13:44:12,341 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:12,341 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:13,043 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:13,043 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:13,756 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:13,757 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:14,489 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:14,489 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:14,494 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:14,494 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:14,495 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VNM_OPTIMIZED_TEST using data_loader
+2025-12-23 13:44:14,495 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 13:44:14,495 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VNM_OPTIMIZED_TEST với 30 ngày lịch sử
+2025-12-23 13:44:14,495 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 13:44:14,495 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 13:44:14,495 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:44:14,499 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:44:14,501 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:44:14,503 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 13:44:14,505 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 13:44:14,507 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:44:14,510 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 13:44:14,518 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:44:14,521 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 13:44:14,523 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 13:44:14,533 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:44:14,535 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 13:44:14,537 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:44:14,540 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 13:44:14,543 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:44:14,546 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 13:44:14,552 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 13:44:14,552 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 13:44:14,552 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 13:44:14,552 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 13:44:14,553 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VNM_OPTIMIZED_TEST...
+2025-12-23 13:44:14,553 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:14,553 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:14,925 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:14,925 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 13:44:14,926 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:15,088 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,088 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:15,249 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,249 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 3 ngày qua
+2025-12-23 13:44:15,414 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,414 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 13:44:15,415 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 13:44:15,448 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 13:44:15,448 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 13:44:15,514 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 13:44:15,514 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 13:44:15,515 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 13:44:15,515 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 13:44:15,517 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 13:44:15,526 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 13:44:15,526 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.43702291829074524, 'prophet': 0.013372574576086836, 'lstm': 0.5094867834049075, 'arima': 0.013372574576086836, 'rf': 0.013372574576086836, 'linear': 0.013372574576086836}
+2025-12-23 13:44:15,526 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 13:44:15,526 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,526 - modules.enhanced_stock_forecast - INFO - Loading data for VNM_OPTIMIZED_TEST with 30 days history
+2025-12-23 13:44:15,527 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,540 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:15,541 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:15,554 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:15,555 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:15,569 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:15,570 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:15,584 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:15,585 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:15,599 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 13:44:15,599 - yfinance - ERROR - ['VNM_OPTIMIZED_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 13:44:15,605 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,605 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,606 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VNM_OPTIMIZED_TEST using data_loader
+2025-12-23 13:44:15,606 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VNM_OPTIMIZED_TEST với 30 ngày lịch sử
+2025-12-23 13:44:15,606 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 13:44:15,606 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 13:44:15,607 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:44:15,612 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:44:15,617 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:44:15,619 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 13:44:15,621 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 13:44:15,622 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:44:15,624 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 13:44:15,631 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:44:15,634 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 13:44:15,635 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 13:44:15,641 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:44:15,642 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 13:44:15,644 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:44:15,645 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 13:44:15,647 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:44:15,649 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 13:44:15,654 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 13:44:15,654 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 13:44:15,654 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 13:44:15,654 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 13:44:15,654 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VNM_OPTIMIZED_TEST...
+2025-12-23 13:44:15,655 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,655 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:15,952 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:15,952 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 13:44:15,953 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:16,139 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:16,139 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 7 ngày qua
+2025-12-23 13:44:16,297 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:16,297 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VNM_OPTIMIZED_TEST trong 3 ngày qua
+2025-12-23 13:44:16,456 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VNM_OPTIMIZED_TEST
+2025-12-23 13:44:16,457 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 13:44:16,457 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 13:44:16,477 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 13:44:16,478 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 13:44:16,520 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 13:44:16,521 - modules.enhanced_stock_forecast - INFO - 2-day forecast completed for VNM_OPTIMIZED_TEST
+2025-12-23 13:59:54,872 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 13:59:54,872 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:59:54,873 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:59:54,874 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:59:54,875 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 13:59:54,875 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 13:59:54,876 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:59:54,877 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 13:59:54,877 - modules.enhanced_ensemble_model - WARNING - Ensemble not trained, using fallback predictions
+2025-12-23 13:59:58,923 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 13:59:58,923 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 13:59:58,925 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 13:59:58,926 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 13:59:58,926 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 13:59:58,927 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 13:59:58,927 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 13:59:58,928 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 13:59:58,928 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for TEST_DOWNWARD
+2025-12-23 13:59:58,928 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 13:59:58,929 - modules.enhanced_stock_forecast - INFO - Training forecast system for TEST_DOWNWARD
+2025-12-23 13:59:58,929 - modules.enhanced_stock_forecast - INFO - Loading data for TEST_DOWNWARD with 30 days history
+2025-12-23 13:59:58,929 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for TEST_DOWNWARD
+2025-12-23 14:00:00,640 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TEST_DOWNWARD.VN"}}}
+2025-12-23 14:00:00,898 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:00,898 - yfinance - ERROR - ['TEST_DOWNWARD.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:02,326 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TEST_DOWNWARD.HN"}}}
+2025-12-23 14:00:02,668 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:02,668 - yfinance - ERROR - ['TEST_DOWNWARD.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:03,409 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:03,410 - yfinance - ERROR - ['TEST_DOWNWARD.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:04,416 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:04,416 - yfinance - ERROR - ['TEST_DOWNWARD.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:05,049 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:05,050 - yfinance - ERROR - ['TEST_DOWNWARD']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:05,056 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for TEST_DOWNWARD
+2025-12-23 14:00:05,056 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for TEST_DOWNWARD
+2025-12-23 14:00:05,056 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for TEST_DOWNWARD using data_loader
+2025-12-23 14:00:05,057 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:00:05,057 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho TEST_DOWNWARD với 30 ngày lịch sử
+2025-12-23 14:00:05,057 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:00:05,058 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:00:05,058 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:00:05,060 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:00:05,061 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:00:05,062 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:00:05,063 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:00:05,064 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:00:05,065 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:00:05,068 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:00:05,069 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:00:05,070 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:00:05,074 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:00:05,074 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:00:05,075 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:00:05,076 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:00:05,077 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:00:05,078 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:00:05,080 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:00:05,081 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:00:05,081 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:00:05,081 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:00:05,081 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho TEST_DOWNWARD...
+2025-12-23 14:00:05,081 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho TEST_DOWNWARD
+2025-12-23 14:00:05,081 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:05,452 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:05,452 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:00:05,453 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:05,648 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:05,649 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:05,950 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:05,951 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 3 ngày qua
+2025-12-23 14:00:06,154 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:06,156 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:00:06,156 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:00:06,176 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:00:06,176 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:00:06,200 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:00:06,200 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:00:06,200 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:00:06,200 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:00:06,201 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:00:06,204 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:00:06,204 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.43702291829074524, 'prophet': 0.013372574576086836, 'lstm': 0.5094867834049075, 'arima': 0.013372574576086836, 'rf': 0.013372574576086836, 'linear': 0.013372574576086836}
+2025-12-23 14:00:06,204 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:00:06,204 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for TEST_DOWNWARD
+2025-12-23 14:00:06,204 - modules.enhanced_stock_forecast - INFO - Loading data for TEST_DOWNWARD with 30 days history
+2025-12-23 14:00:06,204 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for TEST_DOWNWARD
+2025-12-23 14:00:06,216 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:06,216 - yfinance - ERROR - ['TEST_DOWNWARD.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:06,228 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:06,229 - yfinance - ERROR - ['TEST_DOWNWARD.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:06,240 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:06,240 - yfinance - ERROR - ['TEST_DOWNWARD.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:06,253 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:06,253 - yfinance - ERROR - ['TEST_DOWNWARD.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:06,268 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:00:06,268 - yfinance - ERROR - ['TEST_DOWNWARD']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:00:06,275 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for TEST_DOWNWARD
+2025-12-23 14:00:06,275 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for TEST_DOWNWARD
+2025-12-23 14:00:06,275 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for TEST_DOWNWARD using data_loader
+2025-12-23 14:00:06,276 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho TEST_DOWNWARD với 30 ngày lịch sử
+2025-12-23 14:00:06,276 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:00:06,277 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:00:06,277 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:00:06,279 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:00:06,280 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:00:06,281 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:00:06,282 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:00:06,283 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:00:06,284 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:00:06,287 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:00:06,288 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:00:06,289 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:00:06,292 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:00:06,293 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:00:06,293 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:00:06,294 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:00:06,295 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:00:06,296 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:00:06,298 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:00:06,298 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:00:06,299 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:00:06,299 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:00:06,299 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho TEST_DOWNWARD...
+2025-12-23 14:00:06,299 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho TEST_DOWNWARD
+2025-12-23 14:00:06,299 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:06,615 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:06,615 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:00:06,616 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:06,789 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:06,789 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 7 ngày qua
+2025-12-23 14:00:07,074 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:07,074 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_DOWNWARD trong 3 ngày qua
+2025-12-23 14:00:07,236 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_DOWNWARD
+2025-12-23 14:00:07,236 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:00:07,237 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:00:07,252 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:00:07,252 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:00:07,269 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:00:07,269 - modules.enhanced_stock_forecast - ERROR - Forecast failed for TEST_DOWNWARD: 'EnhancedEnsembleModel' object has no attribute '_calculate_prediction_confidence'
+2025-12-23 14:07:49,596 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:07:49,597 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:49,598 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:49,599 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:49,600 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:07:49,600 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:07:49,601 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:49,602 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:07:49,602 - modules.enhanced_ensemble_model - WARNING - Ensemble not trained, using fallback predictions
+2025-12-23 14:07:53,284 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:07:53,284 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:53,285 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:53,286 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:53,287 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:07:53,287 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:07:53,288 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:53,289 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:07:53,289 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for MARKET_CRASH_TEST
+2025-12-23 14:07:53,289 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:07:53,289 - modules.enhanced_stock_forecast - INFO - Training forecast system for MARKET_CRASH_TEST
+2025-12-23 14:07:53,289 - modules.enhanced_stock_forecast - INFO - Loading data for MARKET_CRASH_TEST with 30 days history
+2025-12-23 14:07:53,289 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for MARKET_CRASH_TEST
+2025-12-23 14:07:54,992 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: MARKET_CRASH_TEST.VN"}}}
+2025-12-23 14:07:55,208 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:55,209 - yfinance - ERROR - ['MARKET_CRASH_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:56,456 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: MARKET_CRASH_TEST.HN"}}}
+2025-12-23 14:07:56,676 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:56,677 - yfinance - ERROR - ['MARKET_CRASH_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:57,398 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:57,398 - yfinance - ERROR - ['MARKET_CRASH_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:58,100 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:58,100 - yfinance - ERROR - ['MARKET_CRASH_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:58,841 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:58,841 - yfinance - ERROR - ['MARKET_CRASH_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:58,882 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for MARKET_CRASH_TEST
+2025-12-23 14:07:58,882 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for MARKET_CRASH_TEST
+2025-12-23 14:07:58,882 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for MARKET_CRASH_TEST using data_loader
+2025-12-23 14:07:58,882 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:07:58,882 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho MARKET_CRASH_TEST với 30 ngày lịch sử
+2025-12-23 14:07:58,882 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:07:58,883 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:07:58,883 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:58,885 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:58,887 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:58,888 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:07:58,889 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:07:58,890 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:58,892 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:07:58,899 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:58,900 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:07:58,902 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:07:58,905 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:58,906 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:07:58,908 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:58,909 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:07:58,910 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:58,911 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:07:58,914 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:07:58,914 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:07:58,914 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:07:58,914 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:07:58,914 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho MARKET_CRASH_TEST...
+2025-12-23 14:07:58,914 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho MARKET_CRASH_TEST
+2025-12-23 14:07:58,914 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:07:59,243 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:07:59,244 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:07:59,245 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:07:59,398 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:07:59,398 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:07:59,558 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:07:59,558 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 3 ngày qua
+2025-12-23 14:07:59,840 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:07:59,841 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:07:59,841 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:07:59,863 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:07:59,863 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:07:59,882 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:07:59,883 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:07:59,883 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:07:59,883 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:07:59,883 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:07:59,886 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:07:59,886 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:07:59,886 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:07:59,886 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for MARKET_CRASH_TEST
+2025-12-23 14:07:59,886 - modules.enhanced_stock_forecast - INFO - Loading data for MARKET_CRASH_TEST with 30 days history
+2025-12-23 14:07:59,886 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for MARKET_CRASH_TEST
+2025-12-23 14:07:59,897 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:59,898 - yfinance - ERROR - ['MARKET_CRASH_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:59,909 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:59,909 - yfinance - ERROR - ['MARKET_CRASH_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:59,922 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:59,922 - yfinance - ERROR - ['MARKET_CRASH_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:59,934 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:59,934 - yfinance - ERROR - ['MARKET_CRASH_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:59,946 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:07:59,946 - yfinance - ERROR - ['MARKET_CRASH_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:07:59,948 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for MARKET_CRASH_TEST
+2025-12-23 14:07:59,948 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for MARKET_CRASH_TEST
+2025-12-23 14:07:59,948 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for MARKET_CRASH_TEST using data_loader
+2025-12-23 14:07:59,948 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho MARKET_CRASH_TEST với 30 ngày lịch sử
+2025-12-23 14:07:59,948 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:07:59,948 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:07:59,948 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:59,949 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:59,950 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:59,950 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:07:59,951 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:07:59,952 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:59,953 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:07:59,958 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:07:59,959 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:07:59,961 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:07:59,966 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:07:59,967 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:07:59,968 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:07:59,969 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:07:59,970 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:07:59,971 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:07:59,973 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:07:59,973 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:07:59,973 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:07:59,973 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:07:59,973 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho MARKET_CRASH_TEST...
+2025-12-23 14:07:59,973 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho MARKET_CRASH_TEST
+2025-12-23 14:07:59,973 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:08:00,253 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:08:00,254 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:08:00,254 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:08:00,457 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:08:00,458 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 7 ngày qua
+2025-12-23 14:08:00,662 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:08:00,662 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho MARKET_CRASH_TEST trong 3 ngày qua
+2025-12-23 14:08:00,808 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho MARKET_CRASH_TEST
+2025-12-23 14:08:00,808 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:08:00,808 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:08:00,816 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:08:00,816 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:08:00,836 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:08:00,837 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:08:00,838 - modules.enhanced_stock_forecast - INFO - Day 1 downward prediction: 100.00% decline, 0.0% consensus
+2025-12-23 14:08:00,838 - modules.enhanced_stock_forecast - INFO - Day 2 downward prediction: 100.00% decline, total: 100.00%, acceleration: False
+2025-12-23 14:08:00,838 - modules.enhanced_stock_forecast - ERROR - Forecast failed for MARKET_CRASH_TEST: type list doesn't define __round__ method
+2025-12-23 14:13:54,629 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:13:54,630 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:13:54,632 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:13:54,633 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:13:54,634 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:13:54,636 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:13:54,637 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:13:54,639 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:13:54,639 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for TEST_FIXED
+2025-12-23 14:13:54,639 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:13:54,639 - modules.enhanced_stock_forecast - INFO - Training forecast system for TEST_FIXED
+2025-12-23 14:13:54,639 - modules.enhanced_stock_forecast - INFO - Loading data for TEST_FIXED with 30 days history
+2025-12-23 14:13:54,639 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for TEST_FIXED
+2025-12-23 14:13:56,621 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TEST_FIXED.VN"}}}
+2025-12-23 14:13:56,876 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:13:56,876 - yfinance - ERROR - ['TEST_FIXED.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:13:58,340 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TEST_FIXED.HN"}}}
+2025-12-23 14:13:58,549 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:13:58,550 - yfinance - ERROR - ['TEST_FIXED.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:13:59,162 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:13:59,163 - yfinance - ERROR - ['TEST_FIXED.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:13:59,939 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:13:59,939 - yfinance - ERROR - ['TEST_FIXED.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:00,621 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:00,621 - yfinance - ERROR - ['TEST_FIXED']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:00,631 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for TEST_FIXED
+2025-12-23 14:14:00,631 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for TEST_FIXED
+2025-12-23 14:14:00,632 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for TEST_FIXED using data_loader
+2025-12-23 14:14:00,632 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:14:00,632 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho TEST_FIXED với 30 ngày lịch sử
+2025-12-23 14:14:00,633 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:14:00,635 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:14:00,636 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:14:00,642 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:14:00,643 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:14:00,644 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:14:00,644 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:14:00,645 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:14:00,647 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:14:00,658 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:14:00,660 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:14:00,661 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:14:00,664 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:14:00,665 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:14:00,665 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:14:00,667 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:14:00,668 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:14:00,670 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:14:00,673 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:14:00,673 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:14:00,673 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:14:00,673 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:14:00,673 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho TEST_FIXED...
+2025-12-23 14:14:00,673 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho TEST_FIXED
+2025-12-23 14:14:00,673 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:00,928 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:00,929 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:14:00,930 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:01,114 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:01,114 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:01,312 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:01,312 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 3 ngày qua
+2025-12-23 14:14:01,457 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:01,458 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:14:01,459 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:14:01,479 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:14:01,479 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:14:01,513 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:14:01,514 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:14:01,514 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:14:01,514 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:14:01,515 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:14:01,523 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:14:01,523 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:14:01,523 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:14:01,523 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for TEST_FIXED
+2025-12-23 14:14:01,523 - modules.enhanced_stock_forecast - INFO - Loading data for TEST_FIXED with 30 days history
+2025-12-23 14:14:01,523 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for TEST_FIXED
+2025-12-23 14:14:01,535 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:01,536 - yfinance - ERROR - ['TEST_FIXED.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:01,552 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:01,552 - yfinance - ERROR - ['TEST_FIXED.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:01,569 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:01,569 - yfinance - ERROR - ['TEST_FIXED.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:01,585 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:01,585 - yfinance - ERROR - ['TEST_FIXED.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:01,598 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:14:01,598 - yfinance - ERROR - ['TEST_FIXED']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:14:01,604 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for TEST_FIXED
+2025-12-23 14:14:01,604 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for TEST_FIXED
+2025-12-23 14:14:01,605 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for TEST_FIXED using data_loader
+2025-12-23 14:14:01,605 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho TEST_FIXED với 30 ngày lịch sử
+2025-12-23 14:14:01,606 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:14:01,608 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:14:01,608 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:14:01,609 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:14:01,610 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:14:01,610 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:14:01,611 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:14:01,611 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:14:01,612 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:14:01,616 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:14:01,619 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:14:01,621 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:14:01,624 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:14:01,625 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:14:01,625 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:14:01,626 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:14:01,627 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:14:01,628 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:14:01,631 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:14:01,631 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:14:01,631 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:14:01,631 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:14:01,631 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho TEST_FIXED...
+2025-12-23 14:14:01,631 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho TEST_FIXED
+2025-12-23 14:14:01,631 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:01,974 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:01,975 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:14:02,010 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:02,339 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:02,339 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 7 ngày qua
+2025-12-23 14:14:02,495 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:02,495 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho TEST_FIXED trong 3 ngày qua
+2025-12-23 14:14:02,745 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho TEST_FIXED
+2025-12-23 14:14:02,746 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:14:02,746 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:14:02,755 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:14:02,755 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:14:02,772 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:14:02,773 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:14:02,773 - modules.enhanced_stock_forecast - INFO - Day 1 downward prediction: 100.00% decline, 0.0% consensus
+2025-12-23 14:14:02,773 - modules.enhanced_stock_forecast - INFO - Day 2 downward prediction: 100.00% decline, total: 100.00%, acceleration: False
+2025-12-23 14:14:02,773 - modules.enhanced_stock_forecast - ERROR - Forecast failed for TEST_FIXED: type list doesn't define __round__ method
+2025-12-23 14:24:15,677 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:24:15,677 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:24:15,678 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:24:15,679 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:24:15,679 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:24:15,680 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:24:15,680 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:24:15,681 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:24:15,681 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for VRE_TEST
+2025-12-23 14:24:15,681 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:24:15,681 - modules.enhanced_stock_forecast - INFO - Training forecast system for VRE_TEST
+2025-12-23 14:24:15,681 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_TEST with 30 days history
+2025-12-23 14:24:15,681 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_TEST
+2025-12-23 14:24:17,285 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_TEST.VN"}}}
+2025-12-23 14:24:17,521 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:17,521 - yfinance - ERROR - ['VRE_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:18,954 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_TEST.HN"}}}
+2025-12-23 14:24:19,168 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:19,168 - yfinance - ERROR - ['VRE_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:19,806 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:19,807 - yfinance - ERROR - ['VRE_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:20,630 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:20,631 - yfinance - ERROR - ['VRE_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:21,314 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:21,314 - yfinance - ERROR - ['VRE_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:21,320 - vnstock.common.data - INFO - Not a stock. Company and finance data unavailable.
+2025-12-23 14:24:25,360 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_TEST
+2025-12-23 14:24:25,360 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_TEST
+2025-12-23 14:24:25,361 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_TEST using data_loader
+2025-12-23 14:24:25,362 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:24:25,362 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_TEST với 30 ngày lịch sử
+2025-12-23 14:24:25,362 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:24:25,364 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:24:25,364 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:24:25,368 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:24:25,370 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:24:25,373 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:24:25,375 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:24:25,376 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:24:25,379 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:24:25,386 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:24:25,388 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:24:25,390 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:24:25,394 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:24:25,394 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:24:25,395 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:24:25,396 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:24:25,397 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:24:25,398 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:24:25,400 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:24:25,400 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:24:25,400 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:24:25,400 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:24:25,400 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_TEST...
+2025-12-23 14:24:25,400 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_TEST
+2025-12-23 14:24:25,400 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:29,216 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:29,217 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:24:29,217 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:29,375 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:29,375 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:29,536 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:29,537 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 3 ngày qua
+2025-12-23 14:24:29,692 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:29,692 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:24:29,693 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:24:29,705 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:24:29,705 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:24:29,725 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:24:29,725 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:24:29,725 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:24:29,725 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:24:29,726 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:24:29,729 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:24:29,729 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:24:29,729 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:24:29,729 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for VRE_TEST
+2025-12-23 14:24:29,729 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_TEST with 30 days history
+2025-12-23 14:24:29,729 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_TEST
+2025-12-23 14:24:29,740 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:29,740 - yfinance - ERROR - ['VRE_TEST.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:29,753 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:29,753 - yfinance - ERROR - ['VRE_TEST.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:29,766 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:29,766 - yfinance - ERROR - ['VRE_TEST.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:29,778 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:29,778 - yfinance - ERROR - ['VRE_TEST.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:29,790 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:24:29,790 - yfinance - ERROR - ['VRE_TEST']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:24:29,792 - vnstock.common.data - INFO - Not a stock. Company and finance data unavailable.
+2025-12-23 14:24:33,793 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_TEST
+2025-12-23 14:24:33,794 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_TEST
+2025-12-23 14:24:33,794 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_TEST using data_loader
+2025-12-23 14:24:33,794 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_TEST với 30 ngày lịch sử
+2025-12-23 14:24:33,795 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:24:33,797 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:24:33,797 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:24:33,799 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:24:33,800 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:24:33,801 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:24:33,802 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:24:33,802 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:24:33,803 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:24:33,810 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:24:33,812 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:24:33,813 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:24:33,818 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:24:33,819 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:24:33,819 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:24:33,821 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:24:33,822 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:24:33,824 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:24:33,826 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:24:33,826 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:24:33,826 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:24:33,826 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:24:33,826 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_TEST...
+2025-12-23 14:24:33,826 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_TEST
+2025-12-23 14:24:33,826 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:34,204 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:34,204 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:24:34,206 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:34,365 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:34,365 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 7 ngày qua
+2025-12-23 14:24:34,523 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:34,523 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_TEST trong 3 ngày qua
+2025-12-23 14:24:34,669 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_TEST
+2025-12-23 14:24:34,670 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:24:34,671 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:24:34,689 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:24:34,690 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:24:34,709 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:24:34,709 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:24:34,709 - modules.enhanced_stock_forecast - INFO - Day 1 downward prediction: 100.00% decline, 0.0% consensus
+2025-12-23 14:24:34,709 - modules.enhanced_stock_forecast - INFO - Day 2 downward prediction: 100.00% decline, total: 100.00%, acceleration: False
+2025-12-23 14:24:34,709 - modules.enhanced_stock_forecast - INFO - 2-day forecast completed for VRE_TEST
+2025-12-23 14:27:37,880 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:27:37,880 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:27:37,882 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:27:37,882 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:27:37,883 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:27:37,883 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:27:37,884 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:27:37,885 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:27:37,885 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for VRE_SIMPLE
+2025-12-23 14:27:37,885 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:27:37,885 - modules.enhanced_stock_forecast - INFO - Training forecast system for VRE_SIMPLE
+2025-12-23 14:27:37,885 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_SIMPLE with 30 days history
+2025-12-23 14:27:37,885 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_SIMPLE
+2025-12-23 14:27:39,582 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_SIMPLE.VN"}}}
+2025-12-23 14:27:39,782 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:39,783 - yfinance - ERROR - ['VRE_SIMPLE.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:41,139 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_SIMPLE.HN"}}}
+2025-12-23 14:27:41,395 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:41,396 - yfinance - ERROR - ['VRE_SIMPLE.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:42,058 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:42,058 - yfinance - ERROR - ['VRE_SIMPLE.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:42,811 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:42,811 - yfinance - ERROR - ['VRE_SIMPLE.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:43,452 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:43,452 - yfinance - ERROR - ['VRE_SIMPLE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:43,459 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_SIMPLE
+2025-12-23 14:27:43,460 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_SIMPLE
+2025-12-23 14:27:43,460 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_SIMPLE using data_loader
+2025-12-23 14:27:43,460 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:27:43,460 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_SIMPLE với 30 ngày lịch sử
+2025-12-23 14:27:43,460 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:27:43,461 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:27:43,462 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:27:43,465 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:27:43,466 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:27:43,467 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:27:43,468 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:27:43,469 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:27:43,470 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:27:43,476 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:27:43,477 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:27:43,478 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:27:43,482 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:27:43,483 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:27:43,484 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:27:43,485 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:27:43,485 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:27:43,486 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:27:43,489 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:27:43,489 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:27:43,489 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:27:43,489 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:27:43,489 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_SIMPLE...
+2025-12-23 14:27:43,489 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_SIMPLE
+2025-12-23 14:27:43,489 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:43,806 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:43,807 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:27:43,807 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:43,967 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:43,968 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:44,203 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:44,203 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 3 ngày qua
+2025-12-23 14:27:44,715 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:44,715 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:27:44,716 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:27:44,730 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:27:44,730 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:27:44,757 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:27:44,757 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:27:44,757 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:27:44,757 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:27:44,758 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:27:44,762 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:27:44,762 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:27:44,762 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:27:44,762 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for VRE_SIMPLE
+2025-12-23 14:27:44,762 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_SIMPLE with 30 days history
+2025-12-23 14:27:44,763 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_SIMPLE
+2025-12-23 14:27:44,774 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:44,774 - yfinance - ERROR - ['VRE_SIMPLE.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:44,787 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:44,787 - yfinance - ERROR - ['VRE_SIMPLE.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:44,800 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:44,823 - yfinance - ERROR - ['VRE_SIMPLE.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:44,838 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:44,839 - yfinance - ERROR - ['VRE_SIMPLE.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:44,857 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:27:44,857 - yfinance - ERROR - ['VRE_SIMPLE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:27:44,859 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_SIMPLE
+2025-12-23 14:27:44,859 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_SIMPLE
+2025-12-23 14:27:44,859 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_SIMPLE using data_loader
+2025-12-23 14:27:44,860 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_SIMPLE với 30 ngày lịch sử
+2025-12-23 14:27:44,860 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:27:44,860 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:27:44,860 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:27:44,862 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:27:44,863 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:27:44,864 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:27:44,865 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:27:44,867 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:27:44,868 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:27:44,873 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:27:44,874 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:27:44,875 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:27:44,878 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:27:44,879 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:27:44,879 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:27:44,880 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:27:44,881 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:27:44,883 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:27:44,885 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:27:44,885 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:27:44,885 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:27:44,885 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:27:44,886 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_SIMPLE...
+2025-12-23 14:27:44,886 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_SIMPLE
+2025-12-23 14:27:44,886 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:45,205 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:45,205 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:27:45,206 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:45,352 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:45,352 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 7 ngày qua
+2025-12-23 14:27:45,518 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:45,518 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_SIMPLE trong 3 ngày qua
+2025-12-23 14:27:45,671 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_SIMPLE
+2025-12-23 14:27:45,672 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:27:45,672 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:27:45,689 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:27:45,689 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:27:45,718 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:27:45,719 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:27:45,719 - modules.enhanced_stock_forecast - INFO - Day 1 downward prediction: 100.00% decline, 0.0% consensus
+2025-12-23 14:27:45,719 - modules.enhanced_stock_forecast - INFO - Day 2 downward prediction: 100.00% decline, total: 100.00%, acceleration: False
+2025-12-23 14:27:45,719 - modules.enhanced_stock_forecast - INFO - 2-day forecast completed for VRE_SIMPLE
+2025-12-23 14:37:25,802 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for VRE_FIXED
+2025-12-23 14:37:25,802 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:37:25,802 - modules.enhanced_stock_forecast - INFO - Training forecast system for VRE_FIXED
+2025-12-23 14:37:25,802 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_FIXED with 30 days history
+2025-12-23 14:37:25,802 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_FIXED
+2025-12-23 14:37:27,488 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_FIXED.VN"}}}
+2025-12-23 14:37:27,719 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:27,719 - yfinance - ERROR - ['VRE_FIXED.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:29,138 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_FIXED.HN"}}}
+2025-12-23 14:37:29,348 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:29,348 - yfinance - ERROR - ['VRE_FIXED.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:29,949 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:29,949 - yfinance - ERROR - ['VRE_FIXED.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:30,733 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:30,733 - yfinance - ERROR - ['VRE_FIXED.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:31,516 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:31,516 - yfinance - ERROR - ['VRE_FIXED']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:31,522 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_FIXED
+2025-12-23 14:37:31,522 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_FIXED
+2025-12-23 14:37:31,522 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_FIXED using data_loader
+2025-12-23 14:37:31,522 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:37:31,522 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_FIXED với 30 ngày lịch sử
+2025-12-23 14:37:31,523 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:37:31,523 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:37:31,523 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:37:31,526 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:37:31,527 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:37:31,529 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:37:31,529 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:37:31,530 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:37:31,532 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:37:31,537 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:37:31,538 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:37:31,539 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:37:31,542 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:37:31,544 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:37:31,545 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:37:31,547 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:37:31,549 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:37:31,550 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:37:31,553 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:37:31,553 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:37:31,553 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:37:31,554 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:37:31,554 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_FIXED...
+2025-12-23 14:37:31,554 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_FIXED
+2025-12-23 14:37:31,554 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:31,826 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:31,826 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:37:31,827 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:32,095 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:32,095 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:32,237 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:32,237 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 3 ngày qua
+2025-12-23 14:37:32,380 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:32,381 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:37:32,381 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:37:32,393 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:37:32,393 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:37:32,411 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:37:32,412 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:37:32,412 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:37:32,412 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:37:32,412 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:37:32,415 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:37:32,415 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:37:32,415 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:37:32,415 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for VRE_FIXED
+2025-12-23 14:37:32,415 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_FIXED with 30 days history
+2025-12-23 14:37:32,415 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_FIXED
+2025-12-23 14:37:32,426 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:32,426 - yfinance - ERROR - ['VRE_FIXED.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:32,438 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:32,438 - yfinance - ERROR - ['VRE_FIXED.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:32,450 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:32,450 - yfinance - ERROR - ['VRE_FIXED.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:32,462 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:32,462 - yfinance - ERROR - ['VRE_FIXED.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:32,474 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:37:32,475 - yfinance - ERROR - ['VRE_FIXED']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:37:32,476 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_FIXED
+2025-12-23 14:37:32,477 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_FIXED
+2025-12-23 14:37:32,477 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_FIXED using data_loader
+2025-12-23 14:37:32,477 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_FIXED với 30 ngày lịch sử
+2025-12-23 14:37:32,477 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:37:32,477 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:37:32,477 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:37:32,478 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:37:32,478 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:37:32,479 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:37:32,480 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:37:32,480 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:37:32,481 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:37:32,485 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:37:32,486 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:37:32,487 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:37:32,491 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:37:32,491 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:37:32,492 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:37:32,493 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:37:32,494 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:37:32,495 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:37:32,498 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:37:32,498 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:37:32,498 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:37:32,498 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:37:32,498 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_FIXED...
+2025-12-23 14:37:32,498 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_FIXED
+2025-12-23 14:37:32,498 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:32,740 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:32,741 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:37:32,741 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:32,924 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:32,924 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 7 ngày qua
+2025-12-23 14:37:33,060 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:33,060 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_FIXED trong 3 ngày qua
+2025-12-23 14:37:33,203 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_FIXED
+2025-12-23 14:37:33,204 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:37:33,204 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:37:33,218 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:37:33,218 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:37:33,236 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:37:33,236 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:37:33,237 - modules.enhanced_stock_forecast - WARNING - Day 1 price invalid (29635.438465861665), using fallback: 29635.44
+2025-12-23 14:37:33,237 - modules.enhanced_stock_forecast - WARNING - Day 2 price invalid (29782.14855727682), using fallback: 29782.15
+2025-12-23 14:37:33,237 - modules.enhanced_stock_forecast - INFO - Day 1 downward prediction: 100.00% decline, 0.0% consensus
+2025-12-23 14:37:33,237 - modules.enhanced_stock_forecast - INFO - Day 2 downward prediction: 100.00% decline, total: 1.50%, acceleration: False
+2025-12-23 14:37:33,237 - modules.enhanced_stock_forecast - INFO - 2-day forecast completed for VRE_FIXED
+2025-12-23 14:39:03,160 - modules.enhanced_stock_forecast - INFO - Making 2-day forecast for VRE_LOGIC
+2025-12-23 14:39:03,160 - modules.enhanced_stock_forecast - WARNING - System not trained, training now...
+2025-12-23 14:39:03,160 - modules.enhanced_stock_forecast - INFO - Training forecast system for VRE_LOGIC
+2025-12-23 14:39:03,160 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_LOGIC with 30 days history
+2025-12-23 14:39:03,160 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_LOGIC
+2025-12-23 14:39:05,599 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_LOGIC.VN"}}}
+2025-12-23 14:39:05,813 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:05,814 - yfinance - ERROR - ['VRE_LOGIC.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:07,203 - yfinance - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: VRE_LOGIC.HN"}}}
+2025-12-23 14:39:07,463 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:07,463 - yfinance - ERROR - ['VRE_LOGIC.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:08,153 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:08,154 - yfinance - ERROR - ['VRE_LOGIC.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:08,956 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:08,957 - yfinance - ERROR - ['VRE_LOGIC.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:09,589 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:09,589 - yfinance - ERROR - ['VRE_LOGIC']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:09,596 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_LOGIC
+2025-12-23 14:39:09,596 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_LOGIC
+2025-12-23 14:39:09,596 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_LOGIC using data_loader
+2025-12-23 14:39:09,597 - modules.enhanced_stock_forecast - INFO - Preparing features...
+2025-12-23 14:39:09,597 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_LOGIC với 30 ngày lịch sử
+2025-12-23 14:39:09,597 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:39:09,597 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:39:09,597 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:39:09,600 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:39:09,601 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:39:09,602 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:39:09,603 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:39:09,604 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:39:09,605 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:39:09,609 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:39:09,610 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:39:09,611 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:39:09,615 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:39:09,616 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:39:09,617 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:39:09,619 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:39:09,621 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:39:09,622 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:39:09,625 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:39:09,625 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:39:09,626 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:39:09,626 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:39:09,626 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_LOGIC...
+2025-12-23 14:39:09,626 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_LOGIC
+2025-12-23 14:39:09,626 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:09,978 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:09,978 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:39:09,978 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:10,119 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:10,120 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:10,295 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:10,296 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 3 ngày qua
+2025-12-23 14:39:10,434 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:10,435 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:39:10,435 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:39:10,448 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:39:10,448 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:39:10,469 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:39:10,469 - modules.enhanced_stock_forecast - INFO - Training ensemble models...
+2025-12-23 14:39:10,469 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Starting ensemble model training...
+2025-12-23 14:39:10,469 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Initialized existing models from MarketForecastSystem
+2025-12-23 14:39:10,470 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough data for XGBoost training
+2025-12-23 14:39:10,472 - stock_analyzer.modules.enhanced_ensemble_model - WARNING - Not enough sequences for enhanced LSTM training
+2025-12-23 14:39:10,472 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Optimized ensemble weights: {'xgb': 0.4487754803976727, 'prophet': 0.013379320699787891, 'lstm': 0.4977072368031757, 'arima': 0.013379320699787891, 'rf': 0.013379320699787891, 'linear': 0.013379320699787891}
+2025-12-23 14:39:10,473 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ensemble model training completed
+2025-12-23 14:39:10,473 - modules.enhanced_stock_forecast - INFO - Forecast system training completed for VRE_LOGIC
+2025-12-23 14:39:10,473 - modules.enhanced_stock_forecast - INFO - Loading data for VRE_LOGIC with 30 days history
+2025-12-23 14:39:10,473 - modules.enhanced_stock_forecast - INFO - Using fetch_historical_data for VRE_LOGIC
+2025-12-23 14:39:10,484 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:10,484 - yfinance - ERROR - ['VRE_LOGIC.VN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:10,496 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:10,496 - yfinance - ERROR - ['VRE_LOGIC.HN']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:10,508 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:10,508 - yfinance - ERROR - ['VRE_LOGIC.HM']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:10,522 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:10,522 - yfinance - ERROR - ['VRE_LOGIC.HA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:10,539 - yfinance - ERROR - 
+1 Failed download:
+2025-12-23 14:39:10,540 - yfinance - ERROR - ['VRE_LOGIC']: YFTzMissingError('possibly delisted; no timezone found')
+2025-12-23 14:39:10,548 - modules.enhanced_stock_forecast - WARNING - fetch_historical_data returned empty data for VRE_LOGIC
+2025-12-23 14:39:10,548 - modules.enhanced_stock_forecast - INFO - Falling back to data_loader method for VRE_LOGIC
+2025-12-23 14:39:10,549 - modules.enhanced_stock_forecast - INFO - Loaded 30 days of data for VRE_LOGIC using data_loader
+2025-12-23 14:39:10,549 - stock_analyzer.modules.advanced_feature_engineer - INFO - Chuẩn bị features cho VRE_LOGIC với 30 ngày lịch sử
+2025-12-23 14:39:10,549 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo technical features...
+2025-12-23 14:39:10,550 - stock_analyzer.modules.technical_analysis - INFO - Starting technical analysis...
+2025-12-23 14:39:10,550 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:39:10,552 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:39:10,553 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:39:10,556 - stock_analyzer.modules.technical_analysis - INFO - Calculating OBV
+2025-12-23 14:39:10,558 - stock_analyzer.modules.technical_analysis - INFO - Calculating A/D Line
+2025-12-23 14:39:10,561 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:39:10,563 - stock_analyzer.modules.technical_analysis - INFO - Technical analysis complete.
+2025-12-23 14:39:10,568 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 14
+2025-12-23 14:39:10,569 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 21
+2025-12-23 14:39:10,571 - stock_analyzer.modules.technical_analysis - INFO - Calculating RSI with window 30
+2025-12-23 14:39:10,578 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 12, long_window 26, signal_window 9
+2025-12-23 14:39:10,579 - stock_analyzer.modules.technical_analysis - INFO - Calculating MACD with short_window 8, long_window 21, signal_window 5
+2025-12-23 14:39:10,580 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 20, num_std_dev 2
+2025-12-23 14:39:10,582 - stock_analyzer.modules.technical_analysis - INFO - Calculating Bollinger Bands with window 30, num_std_dev 2
+2025-12-23 14:39:10,583 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 14
+2025-12-23 14:39:10,584 - stock_analyzer.modules.technical_analysis - INFO - Calculating ATR with window 21
+2025-12-23 14:39:10,587 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 72 technical features
+2025-12-23 14:39:10,587 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo macro economic features...
+2025-12-23 14:39:10,587 - stock_analyzer.modules.macro_economic_analyzer - INFO - Starting macro-economic analysis for US equities
+2025-12-23 14:39:10,587 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 31 macro features
+2025-12-23 14:39:10,587 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo sentiment features cho VRE_LOGIC...
+2025-12-23 14:39:10,587 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Lấy sentiment features cho VRE_LOGIC
+2025-12-23 14:39:10,587 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:10,913 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:10,913 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Xử lý sentiment cho 2 tin tức
+2025-12-23 14:39:10,913 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:11,070 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:11,071 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 7 ngày qua
+2025-12-23 14:39:11,302 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:11,303 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập tin tức cho VRE_LOGIC trong 3 ngày qua
+2025-12-23 14:39:11,459 - stock_analyzer.modules.news_sentiment_analyzer - INFO - Thu thập được 2 tin tức cho VRE_LOGIC
+2025-12-23 14:39:11,459 - stock_analyzer.modules.advanced_feature_engineer - INFO - Tạo được 14 sentiment features
+2025-12-23 14:39:11,460 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp tất cả features...
+2025-12-23 14:39:11,471 - stock_analyzer.modules.advanced_feature_engineer - INFO - Kết hợp thành công 127 features
+2025-12-23 14:39:11,471 - stock_analyzer.modules.advanced_feature_engineer - INFO - Xử lý NaN values...
+2025-12-23 14:39:11,505 - stock_analyzer.modules.advanced_feature_engineer - INFO - Hoàn thành chuẩn bị features: 127 features, 30 samples
+2025-12-23 14:39:11,505 - stock_analyzer.modules.enhanced_ensemble_model - INFO - Ultra-high confidence ensemble prediction: 85.0%
+2025-12-23 14:39:11,506 - modules.enhanced_stock_forecast - INFO - 2-day forecast completed for VRE_LOGIC

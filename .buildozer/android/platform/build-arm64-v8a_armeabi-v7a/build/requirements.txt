@@ -1,0 +1,16 @@
+certifi
+chardet
+cycler
+fonttools
+idna
+kivymd
+packaging
+plotly
+pyparsing
+python-dateutil
+pytz
+requests
+scikit-learn
+ta-lib
+urllib3
+yfinance

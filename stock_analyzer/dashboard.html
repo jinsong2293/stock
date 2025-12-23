@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Investment Scanner - Phân tích cơ hội đầu tư</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9em;
+        }
+
+        .control-group select,
+        .control-group input {
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: border-color 0.3s;
+        }
+
+        .control-group select:focus,
+        .control-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .scan-button {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-end;
+        }
+
+        .scan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+        }
+
+        .scan-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .summary-section {
+            grid-column: 1 / -1;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .summary-card h3 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .chart-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .chart-section h3 {
+            margin-bottom: 20px;
+            color: #495057;
+            text-align: center;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .opportunities-section {
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header h3 {
+            font-size: 1.4em;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .export-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .export-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .opportunities-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .opportunities-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .opportunities-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .opportunities-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .recommendation {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .recommendation.strong_buy { background: #d4edda; color: #155724; }
+        .recommendation.buy { background: #d1ecf1; color: #0c5460; }
+        .recommendation.hold { background: #fff3cd; color: #856404; }
+        .recommendation.sell { background: #f8d7da; color: #721c24; }
+
+        .risk-level {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .risk-level.low { background: #d4edda; color: #155724; }
+        .risk-level.medium { background: #fff3cd; color: #856404; }
+        .risk-level.high { background: #f8d7da; color: #721c24; }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .control-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>🎯 Comprehensive Investment Scanner</h1>
+            <p>Tìm kiếm và phân tích toàn diện cơ hội đầu tư trên thị trường chứng khoán Việt Nam</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Ngành nghề</label>
+                <select id="sectorFilter">
+                    <option value="">Tất cả ngành</option>
+                    <option value="Banking">Ngân hàng</option>
+                    <option value="Technology">Công nghệ</option>
+                    <option value="Real Estate">Bất động sản</option>
+                    <option value="Food & Beverage">Thực phẩm & Đồ uống</option>
+                    <option value="Oil & Gas">Dầu khí</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Vốn hóa thị trường</label>
+                <select id="marketCapFilter">
+                    <option value="">Tất cả</option>
+                    <option value="Large">Lớn</option>
+                    <option value="Medium">Trung bình</option>
+                    <option value="Small">Nhỏ</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Sàn giao dịch</label>
+                <select id="exchangeFilter">
+                    <option value="">Tất cả</option>
+                    <option value="HOSE">HOSE</option>
+                    <option value="HNX">HNX</option>
+                    <option value="UPCOM">UPCOM</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Kết quả tối đa</label>
+                <select id="limitFilter">
+                    <option value="20">20</option>
+                    <option value="50" selected>50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            
+            <button class="scan-button" onclick="performScan()" id="scanButton">
+                🔍 Quét thị trường
+            </button>
+        </div>
+
+        <div id="mainContent" style="display: none;">
+            <!-- Summary Section -->
+            <div class="summary-section">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #495057;">📊 Tổng quan kết quả quét</h3>
+                <div class="summary-grid" id="summaryGrid">
+                    <!-- Summary cards will be populated here -->
+                </div>
+            </div>
+
+            <div class="main-content">
+                <!-- Charts Section -->
+                <div class="chart-section">
+                    <h3>🎯 Phân bố khuyến nghị</h3>
+                    <div class="chart-container">
+                        <canvas id="recommendationChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>🏭 Phân bố theo ngành</h3>
+                    <div class="chart-container">
+                        <canvas id="sectorChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Market Overview -->
+                <div class="chart-section">
+                    <h3>📈 Tâm lý thị trường</h3>
+                    <div class="chart-container">
+                        <canvas id="sentimentChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>⚠️ Phân tích rủi ro</h3>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opportunities Table -->
+            <div class="opportunities-section">
+                <div class="section-header">
+                    <h3>🏆 Top cơ hội đầu tư</h3>
+                    <div class="export-buttons">
+                        <button class="export-btn" onclick="exportToJSON()">📄 JSON</button>
+                        <button class="export-btn" onclick="exportToCSV()">📊 CSV</button>
+                        <button class="export-btn" onclick="exportToExcel()">📋 Excel</button>
+                    </div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="opportunities-table" id="opportunitiesTable">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Công ty</th>
+                                <th>Ngành</th>
+                                <th>Giá hiện tại</th>
+                                <th>Thay đổi</th>
+                                <th>Khuyến nghị</th>
+                                <th>Điểm tổng</th>
+                                <th>Tiềm năng</th>
+                                <th>Rủi ro</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="opportunitiesTableBody">
+                            <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Đang quét thị trường và phân tích cơ hội đầu tư...</p>
+        </div>
+    </div>
+
+    <script>
+        let scanResults = null;
+        let recommendationChart = null;
+        let sectorChart = null;
+        let sentimentChart = null;
+        let riskChart = null;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard initialized');
+            // Auto-perform initial scan
+            performScan();
+        });
+
+        async function performScan() {
+            const scanButton = document.getElementById('scanButton');
+            const loadingSection = document.getElementById('loadingSection');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Show loading state
+            scanButton.disabled = true;
+            scanButton.textContent = '🔄 Đang quét...';
+            loadingSection.style.display = 'block';
+            mainContent.style.display = 'none';
+
+            try {
+                // Collect filter criteria
+                const criteria = {
+                    sectors: getSelectedValues('sectorFilter'),
+                    market_caps: getSelectedValues('marketCapFilter'),
+                    exchanges: getSelectedValues('exchangeFilter'),
+                    limit: parseInt(document.getElementById('limitFilter').value),
+                    sort_by: 'overall_score',
+                    sort_order: 'desc'
+                };
+
+                console.log('Scan criteria:', criteria);
+
+                // Call backend API (mock implementation)
+                scanResults = await callBackendAPI(criteria);
+                
+                if (scanResults.error) {
+                    throw new Error(scanResults.error);
+                }
+
+                // Display results
+                displayResults(scanResults);
+                
+                mainContent.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Scan error:', error);
+                showError('Lỗi khi quét thị trường: ' + error.message);
+            } finally {
+                // Reset loading state
+                scanButton.disabled = false;
+                scanButton.textContent = '🔍 Quét thị trường';
+                loadingSection.style.display = 'none';
+            }
+        }
+
+        function getSelectedValues(selectId) {
+            const select = document.getElementById(selectId);
+            const value = select.value;
+            return value ? [value] : null;
+        }
+
+        async function callBackendAPI(criteria) {
+            // Mock API call - replace with actual backend integration
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Generate mock scan results
+                    const mockResults = generateMockScanResults(criteria.limit || 20);
+                    resolve(mockResults);
+                }, 2000); // Simulate API delay
+            });
+        }
+
+        function generateMockScanResults(limit) {
+            const sectors = ['Banking', 'Technology', 'Real Estate', 'Food & Beverage', 'Oil & Gas'];
+            const recommendations = ['STRONG_BUY', 'BUY', 'HOLD', 'SELL'];
+            const riskLevels = ['LOW', 'MEDIUM', 'HIGH'];
+            
+            const companies = {
+                'VCB': 'Vietcombank',
+                'BID': 'Bank for Investment and Development',
+                'CTG': 'VietinBank',
+                'ACB': 'Asia Commercial Bank',
+                'MBB': 'Military Commercial Joint Stock Bank',
+                'FPT': 'FPT Corporation',
+                'VNG': 'VNG Corporation',
+                'VHM': 'Vinhomes Joint Stock Company',
+                'NVL': 'No Va Land Investment Group',
+                'SAB': 'Saigon Beer Alcohol Beverage Corporation'
+            };
+
+            const results = [];
+            
+            for (let i = 0; i < limit; i++) {
+                const symbol = Object.keys(companies)[i % Object.keys(companies).length] + (i > 9 ? Math.floor(i/10) : '');
+                const company = companies[symbol.substring(0, 3)] || `${symbol} Corporation`;
+                
+                const currentPrice = Math.random() * 90000 + 10000;
+                const priceChange = (Math.random() - 0.5) * 10000;
+                const priceChangePct = (priceChange / currentPrice) * 100;
+                
+                results.push({
+                    symbol: symbol,
+                    company_name: company,
+                    sector: sectors[Math.floor(Math.random() * sectors.length)],
+                    current_price: Math.round(currentPrice),
+                    price_change: Math.round(priceChange),
+                    price_change_pct: Math.round(priceChangePct * 10) / 10,
+                    volume: Math.floor(Math.random() * 5000000 + 100000),
+                    recommendation: recommendations[Math.floor(Math.random() * recommendations.length)],
+                    overall_score: Math.round((Math.random() * 60 + 40) * 10) / 10,
+                    upside_potential: Math.round((Math.random() * 40 - 10) * 10) / 10,
+                    risk_level: riskLevels[Math.floor(Math.random() * riskLevels.length)],
+                    pe_ratio: Math.round((Math.random() * 20 + 8) * 10) / 10,
+                    financial_score: Math.round((Math.random() * 50 + 40) * 10) / 10,
+                    sentiment_score: Math.round((Math.random() * 1.3 - 0.5) * 100) / 100,
+                    technical_signal: recommendations[Math.floor(Math.random() * recommendations.length)]
+                });
+            }
+            
+            // Sort by overall score
+            results.sort((a, b) => b.overall_score - a.overall_score);
+
+            const summary = generateSummary(results);
+            const marketOverview = generateMarketOverview(results);
+
+            return {
+                scan_metadata: {
+                    scan_id: `scan_${Date.now()}`,
+                    scan_time: new Date().toISOString(),
+                    scan_duration_seconds: 2.0,
+                    total_stocks_found: 284,
+                    stocks_analyzed: limit,
+                    final_results: limit
+                },
+                scan_summary: summary,
+                results: results,
+                top_opportunities: results.slice(0, 10),
+                market_overview: marketOverview
+            };
+        }
+
+        function generateSummary(results) {
+            const recCounts = {};
+            const sectorCounts = {};
+            const riskCounts = {};
+            
+            results.forEach(r => {
+                recCounts[r.recommendation] = (recCounts[r.recommendation] || 0) + 1;
+                sectorCounts[r.sector] = (sectorCounts[r.sector] || 0) + 1;
+                riskCounts[r.risk_level] = (riskCounts[r.risk_level] || 0) + 1;
+            });
+            
+            return {
+                total_stocks: results.length,
+                recommendation_distribution: recCounts,
+                sector_distribution: sectorCounts,
+                risk_distribution: riskCounts,
+                averages: {
+                    overall_score: results.reduce((sum, r) => sum + r.overall_score, 0) / results.length,
+                    upside_potential: results.reduce((sum, r) => sum + r.upside_potential, 0) / results.length,
+                    pe_ratio: results.reduce((sum, r) => sum + r.pe_ratio, 0) / results.length,
+                    risk_score: 5.2 // Mock
+                },
+                top_buy_opportunities: results.filter(r => r.recommendation === 'STRONG_BUY' || r.recommendation === 'BUY').length,
+                scan_quality: results.length > 20 ? 'HIGH' : 'MEDIUM'
+            };
+        }
+
+        function generateMarketOverview(results) {
+            const positive = results.filter(r => r.sentiment_score > 0.2).length;
+            const negative = results.filter(r => r.sentiment_score < -0.2).length;
+            const neutral = results.length - positive - negative;
+            
+            const buySignals = results.filter(r => r.recommendation === 'STRONG_BUY' || r.recommendation === 'BUY').length;
+            const holdSignals = results.filter(r => r.recommendation === 'HOLD').length;
+            const sellSignals = results.filter(r => r.recommendation === 'SELL').length;
+            
+            return {
+                sentiment_analysis: {
+                    positive: positive,
+                    negative: negative,
+                    neutral: neutral,
+                    sentiment_ratio: positive / Math.max(1, negative)
+                },
+                market_momentum: {
+                    advancing: results.filter(r => r.price_change_pct > 0).length,
+                    declining: results.filter(r => r.price_change_pct < 0).length,
+                    advance_decline_ratio: 1.2
+                },
+                risk_indicators: {
+                    high_risk_stocks: results.filter(r => r.risk_level === 'HIGH').length,
+                    low_volatility_stocks: results.filter(r => r.risk_level === 'LOW').length,
+                    risk_distribution: results.filter(r => r.risk_level === 'HIGH').length / results.length
+                },
+                investment_signals: {
+                    buy_signals: buySignals,
+                    hold_signals: holdSignals,
+                    sell_signals: sellSignals,
+                    buy_signal_ratio: buySignals / results.length
+                },
+                overall_market_sentiment: buySignals > holdSignals ? 'BULLISH' : 'BEARISH'
+            };
+        }
+
+        function displayResults(results) {
+            displaySummary(results.scan_summary);
+            displayCharts(results.scan_summary);
+            displayOpportunities(results.results);
+        }
+
+        function displaySummary(summary) {
+            const summaryGrid = document.getElementById('summaryGrid');
+            
+            summaryGrid.innerHTML = `
+                <div class="summary-card">
+                    <h3>Tổng cổ phiếu</h3>
+                    <div class="value">${summary.total_stocks}</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Điểm TB</h3>
+                    <div class="value">${Math.round(summary.averages.overall_score)}</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Tiềm năng TB</h3>
+                    <div class="value">${Math.round(summary.averages.upside_potential)}%</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Cơ hội Mua</h3>
+                    <div class="value">${summary.top_buy_opportunities}</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Chất lượng</h3>
+                    <div class="value">${summary.scan_quality}</div>
+                </div>
+                <div class="summary-card">
+                    <h3>P/E TB</h3>
+                    <div class="value">${Math.round(summary.averages.pe_ratio)}</div>
+                </div>
+            `;
+        }
+
+        function displayCharts(summary) {
+            // Destroy existing charts
+            if (recommendationChart) recommendationChart.destroy();
+            if (sectorChart) sectorChart.destroy();
+            if (sentimentChart) sentimentChart.destroy();
+            if (riskChart) riskChart.destroy();
+
+            // Recommendation Chart
+            const recCtx = document.getElementById('recommendationChart').getContext('2d');
+            const recLabels = Object.keys(summary.recommendation_distribution);
+            const recData = Object.values(summary.recommendation_distribution);
+            const recColors = ['#28a745', '#17a2b8', '#ffc107', '#dc3545'];
+
+            recommendationChart = new Chart(recCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: recLabels,
+                    datasets: [{
+                        data: recData,
+                        backgroundColor: recColors,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Sector Chart
+            const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+            const sectorLabels = Object.keys(summary.sector_distribution);
+            const sectorData = Object.values(summary.sector_distribution);
+
+            sectorChart = new Chart(sectorCtx, {
+                type: 'bar',
+                data: {
+                    labels: sectorLabels,
+                    datasets: [{
+                        label: 'Số lượng',
+                        data: sectorData,
+                        backgroundColor: '#007bff',
+                        borderColor: '#0056b3',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Sentiment Chart
+            const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+
+            sentimentChart = new Chart(sentimentCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Tích cực', 'Tiêu cực', 'Trung tính'],
+                    datasets: [{
+                        data: [12, 8, 15], // Mock data
+                        backgroundColor: ['#28a745', '#dc3545', '#6c757d']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Risk Chart
+            const riskCtx = document.getElementById('riskChart').getContext('2d');
+            const riskLabels = Object.keys(summary.risk_distribution);
+            const riskData = Object.values(summary.risk_distribution);
+            const riskColors = ['#28a745', '#ffc107', '#dc3545'];
+
+            riskChart = new Chart(riskCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: riskLabels,
+                    datasets: [{
+                        data: riskData,
+                        backgroundColor: riskColors,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayOpportunities(results) {
+            const tableBody = document.getElementById('opportunitiesTableBody');
+            
+            tableBody.innerHTML = results.slice(0, 20).map(stock => `
+                <tr>
+                    <td><strong>${stock.symbol}</strong></td>
+                    <td>${stock.company_name}</td>
+                    <td>${stock.sector}</td>
+                    <td>${stock.current_price.toLocaleString()} VND</td>
+                    <td style="color: ${stock.price_change_pct >= 0 ? '#28a745' : '#dc3545'}">
+                        ${stock.price_change_pct >= 0 ? '+' : ''}${stock.price_change_pct}%
+                    </td>
+                    <td>
+                        <span class="recommendation ${stock.recommendation.toLowerCase().replace('_', '_')}">
+                            ${stock.recommendation.replace('_', ' ')}
+                        </span>
+                    </td>
+                    <td><strong>${stock.overall_score}</strong></td>
+                    <td style="color: ${stock.upside_potential >= 0 ? '#28a745' : '#dc3545'}">
+                        ${stock.upside_potential >= 0 ? '+' : ''}${stock.upside_potential}%
+                    </td>
+                    <td>
+                        <span class="risk-level ${stock.risk_level.toLowerCase()}">
+                            ${stock.risk_level}
+                        </span>
+                    </td>
+                    <td>
+                        <button onclick="showStockDetails('${stock.symbol}')" 
+                                style="background: #007bff; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8em;">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function showStockDetails(symbol) {
+            const stock = scanResults.results.find(s => s.symbol === symbol);
+            if (stock) {
+                alert(`Chi tiết phân tích cho ${symbol}:\n\n` +
+                      `Công ty: ${stock.company_name}\n` +
+                      `Ngành: ${stock.sector}\n` +
+                      `Giá hiện tại: ${stock.current_price.toLocaleString()} VND\n` +
+                      `Khuyến nghị: ${stock.recommendation}\n` +
+                      `Điểm tổng: ${stock.overall_score}\n` +
+                      `Tiềm năng: ${stock.upside_potential}%\n` +
+                      `Rủi ro: ${stock.risk_level}`);
+            }
+        }
+
+        function exportToJSON() {
+            if (!scanResults) return;
+            
+            const dataStr = JSON.stringify(scanResults, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `investment_scan_${Date.now()}.json`;
+            link.click();
+        }
+
+        function exportToCSV() {
+            if (!scanResults) return;
+            
+            const headers = ['Mã', 'Công ty', 'Ngành', 'Giá hiện tại', 'Thay đổi %', 'Khuyến nghị', 'Điểm tổng', 'Tiềm năng %', 'Rủi ro'];
+            const csvContent = [
+                headers.join(','),
+                ...scanResults.results.map(stock => [
+                    stock.symbol,
+                    `"${stock.company_name}"`,
+                    stock.sector,
+                    stock.current_price,
+                    stock.price_change_pct,
+                    stock.recommendation,
+                    stock.overall_score,
+                    stock.upside_potential,
+                    stock.risk_level
+                ].join(','))
+            ].join('\n');
+            
+            const dataBlob = new Blob([csvContent], {type: 'text/csv'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `investment_scan_${Date.now()}.csv`;
+            link.click();
+        }
+
+        function exportToExcel() {
+            if (!scanResults) return;
+            
+            const worksheetData = [
+                ['Mã', 'Công ty', 'Ngành', 'Giá hiện tại', 'Thay đổi %', 'Khuyến nghị', 'Điểm tổng', 'Tiềm năng %', 'Rủi ro'],
+                ...scanResults.results.map(stock => [
+                    stock.symbol,
+                    stock.company_name,
+                    stock.sector,
+                    stock.current_price,
+                    stock.price_change_pct,
+                    stock.recommendation,
+                    stock.overall_score,
+                    stock.upside_potential,
+                    stock.risk_level
+                ])
+            ];
+            
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.aoa_to_sheet(worksheetData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Investment Scan');
+            
+            XLSX.writeFile(wb, `investment_scan_${Date.now()}.xlsx`);
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.body.insertBefore(errorDiv, document.querySelector('.dashboard-container'));
+            
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

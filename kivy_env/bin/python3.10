@@ -1,0 +1,2 @@
+#!/bin/bash
+"/media/jin/databk/Project/stock/.localpython310/bin/python3.10" "$@"
